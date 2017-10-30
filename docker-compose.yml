@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  ntils.tester:
+    image: ntils.tester
+    build:
+      context: ./Ntils.Tester
+      dockerfile: Dockerfile
