@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Builder;
 
 namespace Ntils.Middlewares
 {
-    public static class WebRequestTracerMiddlewareExtensions
+    public static class WebTraceMiddlewareExtensions
     {
         public static IApplicationBuilder UseRequestTracer(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<WebRequestTraceMiddleware>();
+            return builder.UseMiddleware<WebTraceMiddleware>();
         }
     }
 }

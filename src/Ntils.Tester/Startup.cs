@@ -12,7 +12,7 @@ namespace Ntils
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddSignalR();
+            services.AddSignalR();
             services.AddMvc();
         }
 
@@ -32,8 +32,7 @@ namespace Ntils
             }
 
             app.UseStaticFiles();
-
-            //app.UseRequestTracer();
+            app.UseRequestTracer();
 
             app.UseMvc(routes =>
             {
