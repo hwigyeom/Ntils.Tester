@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.DependencyInjection;
+using Ntils.Hubs;
 using Ntils.Middlewares;
 
 // ReSharper disable ClassNeverInstantiated.Global
@@ -33,7 +34,10 @@ namespace Ntils
 
             app.UseStaticFiles();
             app.UseRequestTracer();
-
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<WebTraceHub>("webtrace");
+            });
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -2,10 +2,27 @@
 
 <html>
 <head>
-  <title>title</title>
+  <title>Ntils Tester</title>
+  <environment names="Development">
+    <link rel="stylesheet" href="~/css/ntils-bootstrap.css" asp-append-version="true"/>
+  </environment>
+  <environment names="Staging,Production">
+    <link rel="stylesheet" href="~/css/ntils-bootstrap.min.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/site.min.css"/>
+  </environment>
 </head>
 <body>
 <div id="app"></div>
-<script src="~/dist/main-client.js" asp-append-version="true"></script>
+
+<environment names="Development">
+  <script src="~/dist/vendor.js" asp-append-version="true"></script>
+  <script src="~/dist/main.js" asp-append-version="true"></script>
+</environment>
+
+<environment names="Staging,Production">
+  <script src="~/dist/vendor.min.js" asp-append-version="true"></script>
+  <script src="~/dist/main.min.js" asp-append-version="true"></script>
+</environment>
+
 </body>
 </html>

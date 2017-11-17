@@ -1,21 +1,18 @@
 <template>
-  <div>
+  <div class="message">
     <h1>Hello from Vue!</h1>
-    <Message v-for="(msg, index) in messages" :message="msg" :key="index" />
+    <Message v-for="(msg, index) in messages" :message="msg" :key="index"/>
     <button @click="fetchMessages(lastFetchedMessageDate)">Fetch a message</button>
   </div>
 </template>
 
-<script>
-import { mapGetters, mapActions } from 'vuex';
-import Message from './Message.vue';
+<script src="./App.vue.js"></script>
 
-export default {
-  components: { Message },
-  computed: mapGetters(['messages', 'lastFetchedMessageDate']),
-  methods: mapActions(['fetchMessages']),
-  created () {
-    return this.$store.dispatch('fetchInitialMessages')
+<style lang="scss" scoped>
+  .message {
+    background-color: aliceblue;
+    h1 {
+      font-size: small;
+    }
   }
-}
-</script>
+</style>
