@@ -14,7 +14,7 @@ namespace Ntils.Models
             Message.CreateMessage("Third message title", "Third message text", _startDateTime.AddDays(2)),
             Message.CreateMessage("Fourth message title", "Fourth message text", _startDateTime.AddDays(3)),
             Message.CreateMessage("Fifth message title", "Fifth message text", _startDateTime.AddDays(4)),
-            Message.CreateMessage("Sixth message title", "Sixth message text", _startDateTime.AddDays(5)),
+            Message.CreateMessage("일곱번째 메시지 타이틀", "일곱번째 메시지 텍스트", _startDateTime.AddDays(5)),
         };
     }
 }

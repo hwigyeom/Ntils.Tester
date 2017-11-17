@@ -260,4 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 
-src/Ntils.Tester/wwwroot/
+src/Ntils.Tester/wwwroot/dist/

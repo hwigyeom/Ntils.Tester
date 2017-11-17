@@ -4,24 +4,24 @@
 <head>
   <title>Ntils Tester</title>
   <environment names="Development">
-    <link rel="stylesheet" href="~/css/ntils-bootstrap.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/dist/css/ntils-bootstrap.css" asp-append-version="true"/>
   </environment>
   <environment names="Staging,Production">
-    <link rel="stylesheet" href="~/css/ntils-bootstrap.min.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/css/site.min.css"/>
+    <link rel="stylesheet" href="~/dist/css/ntils-bootstrap.min.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/dist/css/site.min.css"/>
   </environment>
 </head>
 <body>
 <div id="app"></div>
 
 <environment names="Development">
-  <script src="~/dist/vendor.js" asp-append-version="true"></script>
-  <script src="~/dist/main.js" asp-append-version="true"></script>
+  <script src="~/dist/js/vendor.js" asp-append-version="true"></script>
+  <script src="~/dist/js/main.js" asp-append-version="true"></script>
 </environment>
 
 <environment names="Staging,Production">
-  <script src="~/dist/vendor.min.js" asp-append-version="true"></script>
-  <script src="~/dist/main.min.js" asp-append-version="true"></script>
+  <script src="~/dist/js/vendor.min.js" asp-append-version="true"></script>
+  <script src="~/dist/jst/main.min.js" asp-append-version="true"></script>
 </environment>
 
 </body>

@@ -2,11 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const bundleOutputDir = './wwwroot/dist';
+const bundleOutputDir = `./wwwroot/dist/js`;
 
 module.exports = (env) => {
   const isDevBuild = !(env && env.prod);
 
+  // noinspection JSUnresolvedFunction
   return [ {
     stats: { modules: false },
     context: __dirname,
@@ -14,9 +15,9 @@ module.exports = (env) => {
     entry: { 'main': './ClientApp/app.js' },
 
     output: {
-      path: path.resolve(__dirname, './wwwroot'),
+      path: path.resolve(__dirname, './wwwroot', 'dist'),
       publicPath: '/dist/',
-      filename: isDevBuild ? 'dist/[name].js' : 'dist/[name].min.js'
+      filename: isDevBuild ? 'js/[name].js' : 'js/[name].min.js'
     },
 
     module: {
@@ -33,13 +34,9 @@ module.exports = (env) => {
         },
         {
           test: /\.s[a|c]ss$/,
-          include: /ClientApp\/scss/,
           use: isDevBuild ? [
             { loader: 'style-loader' },
-            {
-              loader: 'css-loader',
-              options: { minimize: true }
-            },
+            { loader: 'css-loader' },
             {
               loader: 'postcss-loader',
               options: {
@@ -81,16 +78,23 @@ module.exports = (env) => {
             publicPath: '/css/'
           })
         },
-        // {
-        //   test: /\.(png|jpg|jpeg|gif|svg)$/,
-        //   include: /ClientApp\/images/,
-        //   use: 'url-loader?limit=25000'
-        // },
-        // {
-        //   test: /\.(eot|svg|ttf|woff|woff2)$/,
-        //   include: /ClientApp/,
-        //   use: 'file-loader?name=wwwroot/fonts/[name].[ext]'
-        // }
+        {
+          test: /\.(png|jpg|jpeg|gif|svg)$/i,
+          exclude: [
+            /ClientApp\/fonts/
+          ],
+          use: {
+            loader: 'url-loader',
+            options: {
+              limit: 25000,
+              name: 'images/[name]-[hash:7].[ext]'
+            }
+          }
+        },
+        {
+          test: /\.(eot|svg|ttf|woff|woff2)$/i,
+          use: 'file-loader?name=fonts/[name].[ext]'
+        }
       ]
     },
     plugins: [
