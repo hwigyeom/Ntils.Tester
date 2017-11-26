@@ -1,7 +1,12 @@
+html, body {
+  min-height: 100%;
+}
+html {
+  font-size: 12px;
+  font-family: "Noto Sans KR", "Malgun Gothic", "AppleSDGothic", "Helvetica Neue", "Lucida Grande", "Sans serif", sans-serif;
+}
 
 body {
-  font-size: 14px;
-  background: url("../../images/paul-itkin-261733.jpg") no-repeat;
   transition: all .5s;
 }
 

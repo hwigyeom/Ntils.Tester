@@ -92,7 +92,7 @@ module.exports = (env) => {
           }
         },
         {
-          test: /\.(eot|svg|ttf|woff|woff2)$/i,
+          test: /\.(eot|svg|ttf|woff|woff2|otf)$/i,
           use: 'file-loader?name=fonts/[name].[ext]'
         }
       ]
